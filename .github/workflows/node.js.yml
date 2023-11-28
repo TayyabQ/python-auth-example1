@@ -21,7 +21,7 @@ jobs:
       run: docker build -t python-app .
 
     - name: Tag the Docker image
-      run: docker tag python-app tayyabqaisar41514/python-auth-example
+      run: docker tag python-app tayyabqaisar41514/python-auth-example1
 
     - name: Push the Docker image
-      run: docker push tayyabqaisar41514/python-auth-example
+      run: docker push tayyabqaisar41514/python-auth-example1
