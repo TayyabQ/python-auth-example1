@@ -15,7 +15,7 @@ jobs:
       uses: actions/checkout@v2
 
     - name: Login to Docker Hub
-      run: echo ${{ secrets.DOCKERPW }} | docker login -u "tayyabqaisar41514" --password-stdin
+      run: echo "//docker.io/tayyabqaisar41514:${{ secrets.DOCKERPW }}" > ~/.docker/config.json
 
     - name: Build the Docker image
       run: docker build -t python-app .
