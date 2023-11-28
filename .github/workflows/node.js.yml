@@ -14,9 +14,6 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
 
-    - name: Login to Docker Hub
-      run: echo "//docker.io/tayyabqaisar41514:${{ secrets.DOCKERPW }}" > ~/.docker/config.json
-
     - name: Build the Docker image
       run: docker build -t python-app .
 
@@ -24,4 +21,6 @@ jobs:
       run: docker tag python-app tayyabqaisar41514/python-auth-example1
 
     - name: Push the Docker image
-      run: docker push tayyabqaisar41514/python-auth-example1
+      run: |
+        echo "{\"auths\":{\"docker.io\":{\"username\":\"tayyabqaisar41514\",\"password\":\"${{ secrets.DOCKERHUB_TOKEN }}\",\"email\":\"tayyabqaisar41514@gmail.com\"}}}" > $HOME/.docker/config.json
+        docker push tayyabqaisar41514/python-auth-example1
