@@ -22,5 +22,4 @@ jobs:
 
     - name: Push the Docker image
       run: |
-        echo "{\"auths\":{\"docker.io\":{\"username\":\"tayyabqaisar41514\",\"password\":\"${{ secrets.DOCKERHUB_TOKEN }}\",\"email\":\"tayyabqaisar41514@gmail.com\"}}}" > $HOME/.docker/config.json
-        docker push tayyabqaisar41514/python-auth-example1
+         echo "${{ secrets.DOCKERPW }}" | docker login -u "tayyabqaisar41514" --password-stdin 
